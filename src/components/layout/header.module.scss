@@ -1,0 +1,17 @@
+@tailwind components;
+
+@layer components {
+  .header {
+    @apply flex justify-between items-center py-8;
+
+    .menu {
+      @apply flex items-center;
+
+      &__item {
+        &:not(:first-child) {
+          @apply ml-10;
+        }
+      }
+    }
+  }
+}
