@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from "next/image";
+import Advertisement from "@/components/common/Advertisement";
 
 const Home = () => {
     const featuredPost = {
@@ -12,6 +13,7 @@ const Home = () => {
         },
         createdAt: 'August 20, 2022'
     }
+
     return (
         <div className="container w-full h-full mt-6">
             {featuredPost && (
@@ -19,7 +21,8 @@ const Home = () => {
                     <div className="relative w-full h-full rounded-xl overflow-hidden">
                         <Image src={featuredPost.image} alt={featuredPost.title} fill className="object-cover"/>
                     </div>
-                    <div className="absolute max-w-[600px] left-16 -bottom-16 bg-white p-10 rounded-xl overflow-hidden shadow-xl">
+                    <div
+                        className="absolute max-w-[600px] left-16 -bottom-16 bg-white p-10 rounded-xl overflow-hidden shadow-xl">
                         <div className="w-max rounded-md bg-blue-600 font-medium text-white text-sm py-1 px-2.5">
                             {featuredPost.category}
                         </div>
@@ -42,6 +45,9 @@ const Home = () => {
                     </div>
                 </div>
             )}
+            <div className={`${featuredPost ? 'mt-40' : ''} flex justify-center`}>
+                <Advertisement image={"/assets/images/advertisement.png"} alt={"Advertisement"}/>
+            </div>
         </div>
     );
 };
